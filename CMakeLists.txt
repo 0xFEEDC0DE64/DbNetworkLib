@@ -9,7 +9,7 @@ set(SOURCES
     utils/netutils.cpp
 )
 
-add_library(dbnetworklib ${HEADERS} ${SOURCES})
+add_library(dbnetworklib SHARED ${HEADERS} ${SOURCES})
 
 target_compile_definitions(dbnetworklib PRIVATE DBNETWORKLIB_LIBRARY)
 
