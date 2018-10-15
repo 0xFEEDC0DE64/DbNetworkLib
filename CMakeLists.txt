@@ -9,7 +9,16 @@ set(SOURCES
     utils/netutils.cpp
 )
 
-add_library(dbnetworklib SHARED ${HEADERS} ${SOURCES})
+set(TRANSLATIONS
+    translations/dbnetworklib_en.ts
+    translations/dbnetworklib_de.ts
+)
+
+set_source_files_properties(${TRANSLATIONS} PROPERTIES OUTPUT_LOCATION ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/translations)
+QT5_CREATE_TRANSLATION(TRANSLATIONS_C ${TRANSLATIONS} ${HEADERS} ${SOURCES} OPTIONS -no-obsolete)
+#QT5_ADD_TRANSLATION(TRANSLATIONS_C ${TRANSLATIONS})
+
+add_library(dbnetworklib SHARED ${HEADERS} ${SOURCES} ${TRANSLATIONS_C})
 
 target_compile_definitions(dbnetworklib PRIVATE DBNETWORKLIB_LIBRARY)
 
