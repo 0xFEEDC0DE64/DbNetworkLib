@@ -1,5 +1,9 @@
 project(DbNetworkLib)
 
+find_package(Qt5Core CONFIG REQUIRED)
+find_package(Qt5Network CONFIG REQUIRED)
+find_package(Qt5LinguistTools CONFIG REQUIRED)
+
 set(HEADERS
     dbnetworklib_global.h
     utils/netutils.h
